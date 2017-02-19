@@ -29,9 +29,9 @@ test:
   database: webn64_test
 
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: webn64_production
   url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV['DB_POOL'] || 5 %>
   reaping_frequency: <%= ENV['DB_REAP_FREQ'] %>
-  adapter: postgresql
-  database: webn64_production
