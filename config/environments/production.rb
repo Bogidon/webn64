@@ -79,5 +79,5 @@ Rails.application.configure do
 
   # Set Action Cable server url for consumer connection
   # config.middleware.use ActionCableGame
-  config.action_cable.url = 'redistogo:e70b00c05964545c0ff2572249218d8e@koi.redistogo.com:11436/'
+  config.action_cable.url = '/cable'
 end
