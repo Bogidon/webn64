@@ -1,5 +1,3 @@
-require_relative  '../../middleware/action_cable_game'
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
