@@ -78,6 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set Action Cable server url for consumer connection
-  config.middleware.use ActionCableGame
-  config.action_cable.url = 'ws://webn64.herokuapp.com/cable'
+  # config.middleware.use ActionCableGame
+  config.action_cable.url = 'redistogo:e70b00c05964545c0ff2572249218d8e@koi.redistogo.com:11436/'
 end
