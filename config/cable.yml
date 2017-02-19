@@ -7,5 +7,5 @@ test: *local
 
 production:
   adapter: redis
-  url: www.webn64.herokuapp.com/cable
+  url: webn64.herokuapp.com/cable
   channel_prefix: appname_production
