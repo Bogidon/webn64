@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def host
     game_uuid = params[:game_uuid]
     puts game_uuid
-    GameSession.create(uuid: game_uuid, game_id: 1, host_id: 1)
+    GameSession.create(uuid: game_uuid, game_id: 1, host_id: 1, players_connected: 0)
     @game_uuid = game_uuid
     gon.game_uuid = game_uuid
   end
