@@ -5,14 +5,22 @@
 #   gem 'sqlite3'
 #
 default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
 
 development:
-  <<: *default
+  host: 127.0.0.1
   database: webn64_development
-
+  username: root
+  port: 3306
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -21,8 +29,9 @@ test:
   database: webn64_test
 
 production:
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV['DB_POOL'] || 5 %>
   reaping_frequency: <%= ENV['DB_REAP_FREQ'] %>
-  encoding_creation: utf8
   adapter: postgresql
+  database: webn64_production
