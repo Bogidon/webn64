@@ -79,5 +79,5 @@ Rails.application.configure do
 
   # Set Action Cable server url for consumer connection
   # config.middleware.use ActionCableGame
-  config.action_cable.url = '/cable'
+  config.action_cable.url = 'ws://webn64.herokuapp.com/cable'
 end
