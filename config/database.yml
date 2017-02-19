@@ -26,4 +26,3 @@ production:
   reaping_frequency: <%= ENV['DB_REAP_FREQ'] %>
   encoding_creation: utf8
   adapter: postgresql
-  url:
