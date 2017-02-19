@@ -78,6 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set Action Cable server url for consumer connection
-  config.middleware.use ActionCableGame
-  config.action_cable.url = 'ws://localhost:28080'
+  # config.middleware.use ActionCableGame
+  # config.action_cable.url = 'ws://localhost:28080'
 end
