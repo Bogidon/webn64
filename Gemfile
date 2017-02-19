@@ -9,7 +9,6 @@ gem 'redis'
 gem 'pg'
 gem 'sprockets-rails', '3.2.0'
 gem 'gon'
-gem 'foreman', require: false # Manages processes needed to start for the application
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
