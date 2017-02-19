@@ -5,5 +5,5 @@
   this.App || (this.App = {});
   console.log("better print this")
 
-  App.cable = ActionCable.createConsumer();
+  App.cable = ActionCable.createConsumer('/cable');
 }).call(this);
