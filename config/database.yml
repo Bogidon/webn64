@@ -24,7 +24,6 @@ production:
   url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV['DB_POOL'] || 5 %>
   reaping_frequency: <%= ENV['DB_REAP_FREQ'] %>
-  encoding: utf8mb4
   encoding_creation: utf8
   adapter: postgresql
   url:
