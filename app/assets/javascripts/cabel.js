@@ -3,6 +3,7 @@
 
 (function() {
   this.App || (this.App = {});
+  console.log("better print this")
 
-  App.cable = ActionCable.createConsumer('ws://localhost:28080');
+  App.cable = ActionCable.createConsumer();
 }).call(this);

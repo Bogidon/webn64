@@ -3,7 +3,8 @@ module ApplicationCable
     identified_by :current_client
 
     def connect
-      self.current_client = find_unverified_client
+      puts "this get printed first"
+      self.current_client = cookies.signed[:uuid]
     end
 
     private

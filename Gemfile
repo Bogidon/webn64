@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.0'
 gem 'mysql2', '0.4.4'
 gem 'puma'
+gem 'redis'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
