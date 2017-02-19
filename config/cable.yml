@@ -5,7 +5,6 @@ local: &local
 development: *local
 test: *local
 
-# production:
-#   adapter: redis
-#   url: redis://10.10.3.153:6381
-#   channel_prefix: appname_production
+production:
+  adapter: redis
+  url: redistogo:e70b00c05964545c0ff2572249218d8e@koi.redistogo.com:11436/
