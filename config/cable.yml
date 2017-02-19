@@ -1,11 +1,11 @@
+production:
+  adapter: redis
+  url: redistogo:e70b00c05964545c0ff2572249218d8e@koi.redistogo.com:11436
+  channel_prefix: appname_production
+
 local: &local
   url: redis://localhost:6379
   port: 6379
 
 development: *local
 test: *local
-
-production:
-  adapter: redis
-  url: redistogo:e70b00c05964545c0ff2572249218d8e@koi.redistogo.com:11436/
-  channel_prefix: appname_production
