@@ -1,9 +1,9 @@
-//= require action_cable
-//= require_self
+// = require action_cable
+// = require_self
 
-(function() {
-  this.App || (this.App = {});
-  console.log("better print this")
+(function () {
+  this.App || (this.App = {})
+  console.log('better print this')
 
-  App.cable = ActionCable.createConsumer('/cable');
-}).call(this);
+  App.cable = ActionCable.createConsumer('/cable')
+}).call(this)
