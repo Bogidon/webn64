@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = true
+  config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -77,7 +77,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Set Action Cable server url for consumer connection
-  # config.middleware.use ActionCableGame
-  config.action_cable.url = 'ws://webn64.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
 end
