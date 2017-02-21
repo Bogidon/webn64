@@ -61,10 +61,11 @@
   <img id="dropImage" src="../../assets/images/drop.svg">
   <div id="tvScreenOverlay"></div>
 
-  <script type="text/javascript" src="../../assets/javascripts/snes/es6-promise.js"></script>
-  <script type="text/javascript" src="../../assets/javascripts/snes/browserfs.js"></script>
-  <script type="text/javascript" src="../../assets/javascripts/snes/loader.js"></script>
-  <script type="text/javascript" src="../../assets/javascripts/snes/dropzone.min.js"></script>
+  <%= javascript_include_tag "snes/es6-promise" %>
+  <%= javascript_include_tag "snes/browserfs" %>
+  <%= javascript_include_tag "snes/loader" %>
+  <%= javascript_include_tag "snes/dropzone" %>
+
   <script type="text/javascript">
 
 
@@ -99,10 +100,10 @@
         var loader = new MAMELoader(
           MAMELoader.driver("snes"),
           MAMELoader.nativeResolution(512, 448),
-          MAMELoader.emulatorJS("../../assets/javascripts/snes/mamewebsnes.js"),
+          MAMELoader.emulatorJS("/javascripts/mamewebsnes.js"),
           MAMELoader.peripheral("cart", "game.sfc"),
           MAMELoader.mountFile("game.sfc", MAMELoader.fetchFile("Game File", gameURL)),
-          MAMELoader.mountFile("snes.zip", MAMELoader.fetchFile("Bios", "roms/snes.zip")))
+          MAMELoader.mountFile("snes.zip", MAMELoader.fetchFile("Bios", "/snes.zip")))
 
         // Start emulator
         var emulator = new Emulator(document.querySelector("#canvas"), null, loader)
