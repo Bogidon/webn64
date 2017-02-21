@@ -49,25 +49,20 @@
   }
 </style>
 
-<a href=<%="session/" + @game_uuid.to_s%>
-  CLICK ME TO JOIN GAME
-</a>
-
 <body>
-  <h1 id="link"><a target="blank">websn.es/7f55a</a></h1>
+  <h1 id="link"><a href=<%="session/" + @game_uuid.to_s%>>Link for controllers</a></h1>
   <canvas id="canvas"></canvas>
   <img id="emptyTV" src="/images/empty_tv.png">
   <img id="tvScreen" src="/images/tv_screen.png">
   <img id="dropImage" src="/images/drop.svg">
   <div id="tvScreenOverlay"></div>
 
-  <%= javascript_include_tag "snes/es6-promise" %>
-  <%= javascript_include_tag "snes/browserfs" %>
-  <%= javascript_include_tag "snes/loader" %>
-  <%= javascript_include_tag "snes/dropzone" %>
+  <%= javascript_include_tag "snes/host/es6-promise" %>
+  <%= javascript_include_tag "snes/host/browserfs" %>
+  <%= javascript_include_tag "snes/host/loader" %>
+  <%= javascript_include_tag "snes/host/dropzone" %>
 
   <script type="text/javascript">
-
 
     Dropzone.autoDiscover = false
 

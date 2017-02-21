@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>example NES</title>
+    
+    <%= javascript_include_tag "cable/subscriptions/client" %>
+    <%= javascript_include_tag "snes/remote/script" %>
+
+    <style type="text/css">
+    	#remote {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    bottom: 0;
+		    right: 0;
+		    width: 95vw;
+		    margin: auto;
+		}
+
+		.button:hover{
+		    background-color: #300;
+		}
+
+		.button {
+		    position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    right: 0;
+		    left: 0;
+		    margin: auto;
+		    background-color: #369;
+		}
+
+		.button.dpad {
+		    width: 6vw;
+		    height: 6vw;
+		    border-top-left-radius: 1vw;
+		    border-top-right-radius: 1vw;
+		}
+
+		.button.control {
+		    width: 8.2vw;
+		    height: 3.12vw;
+		    border-radius: 4vw;
+		    transform: rotate(143deg);
+		    top: 7.4vw;
+		}
+
+		.button.circle {
+		    width: 8vw;
+		    height: 8vw;
+		    border-radius: 4vw;
+		}
+
+		.button.bumper {
+		    width: 20vw;
+		    height: 4vw;
+		    border-radius: 4vw;
+		    bottom: 39vw;
+		}
+
+		.button#dpad_up {
+		    bottom: 10.5vw;
+		    right: 55vw;
+		}
+
+		.button#dpad_left {
+		    right: 66vw;
+		    top: 1.5vw;
+		    transform: rotate(270deg)
+		}
+
+		.button#dpad_right {
+		    right: 44vw;
+		    top: 1.5vw;
+		    transform: rotate(90deg)
+		}
+
+		.button#dpad_down {
+		    top: 13.2vw;
+		    right: 54.8vw;
+		    transform: rotate(180deg);
+		}
+
+		.button#select {
+		    right: 18vw;
+		}
+
+		.button#start {
+		    left: 2.85vw;
+		}
+
+		.button#a {
+		    top: 1vw;
+		    left: 73vw;
+		}
+
+		.button#b {
+		    top:15.5vw;
+		    left:54vw;
+		}
+
+		.button#x {
+		    bottom: 12.5vw;
+		    left: 54vw;
+		}
+
+		.button#y {
+		    top:1.5vw;
+		    left:36vw;
+		}
+
+		.button#bumper_left {
+		    right: 55vw;
+		}
+
+		.button#bumper_right {
+		    left: 55vw;
+		}
+    </style>
+  </head>
+  <body>
+  	<img id="remote" src="/images/remote.png">
+  	<div class="button dpad" id="dpad_up"></div>
+  	<div class="button dpad" id="dpad_left"></div>
+  	<div class="button dpad" id="dpad_right"></div>
+  	<div class="button dpad" id="dpad_down"></div>
+  
+    <div class="button control" id="select"></div>
+  	<div class="button control" id="start"></div>
+
+  	<div class="button circle" id="a"></div>
+  	<div class="button circle" id="b"></div>
+  	<div class="button circle" id="x"></div>
+  	<div class="button circle" id="y"></div>
+
+    <div class="button bumper" id="bumper_left"></div>
+  	<div class="button bumper" id="bumper_right"></div>
+  </body>
+</html>
