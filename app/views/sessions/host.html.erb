@@ -1,0 +1,122 @@
+<style type="text/css">
+  body {
+    background-color: #070a1f;
+  }
+
+  #link {
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #fff;
+    text-align: center;
+    top: 5vh;
+    font-family: sans-serif;
+  }
+
+  #canvas, #dropImage, #tvScreenOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -19.6vh;
+    right: 0;
+    margin: auto;
+  }
+
+  #canvas, #tvScreenOverlay {
+    width: 67.4vh;
+    height: 59vh;
+  }
+
+  #dropImage {
+    width: 10vh;
+  }
+
+  #emptyTV, #tvScreen {
+    position: absolute;
+    margin: auto;
+    top: 5vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 102.4vh;
+    height: 80vh;
+  }
+
+  #tvScreen.dropping {
+    -webkit-filter: brightness(70%);
+    filter: brightness(70%);
+  }
+</style>
+
+<a href=<%="session/" + @game_uuid.to_s%>
+  CLICK ME TO JOIN GAME
+</a>
+
+<body>
+  <h1 id="link"><a target="blank">websn.es/7f55a</a></h1>
+  <canvas id="canvas"></canvas>
+  <img id="emptyTV" src="../../assets/images/empty_tv.png">
+  <img id="tvScreen" src="../../assets/images/tv_screen.png">
+  <img id="dropImage" src="../../assets/images/drop.svg">
+  <div id="tvScreenOverlay"></div>
+
+  <script type="text/javascript" src="../../assets/javascripts/snes/es6-promise.js"></script>
+  <script type="text/javascript" src="../../assets/javascripts/snes/browserfs.js"></script>
+  <script type="text/javascript" src="../../assets/javascripts/snes/loader.js"></script>
+  <script type="text/javascript" src="../../assets/javascripts/snes/dropzone.min.js"></script>
+  <script type="text/javascript">
+
+
+    Dropzone.autoDiscover = false
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var tvScreen = document.getElementById("tvScreen")
+      var dropImage = document.getElementById("dropImage")
+
+      var dropzone = new Dropzone("#tvScreenOverlay", {url: "/file/post"})
+      dropzone.previewsContainer = null
+      dropzone.autoProcessQueue = false
+      dropzone.createImageThumbnails = false
+      dropzone.maxFiles = 1
+      dropzone.acceptedFiles = '.sfc'
+
+      dropzone.on("dragenter", function(file) {
+        tvScreen.classList.add("dropping")
+        dropImage.setAttribute("src", "../../assets/images/drop_ready.svg")
+      })
+
+      dropzone.on("dragleave", function(file) {
+        tvScreen.classList.remove("dropping")
+        dropImage.setAttribute("src", "../../assets/images/drop.svg")
+      })
+
+      dropzone.on("addedfile", function(file) {
+        console.log(file)
+        var gameURL = window.URL.createObjectURL(file);
+
+        // Load emulator
+        var loader = new MAMELoader(
+          MAMELoader.driver("snes"),
+          MAMELoader.nativeResolution(512, 448),
+          MAMELoader.emulatorJS("../../assets/javascripts/snes/mamewebsnes.js"),
+          MAMELoader.peripheral("cart", "game.sfc"),
+          MAMELoader.mountFile("game.sfc", MAMELoader.fetchFile("Game File", gameURL)),
+          MAMELoader.mountFile("snes.zip", MAMELoader.fetchFile("Bios", "roms/snes.zip")))
+
+        // Start emulator
+        var emulator = new Emulator(document.querySelector("#canvas"), null, loader)
+        emulator.setScale(1);
+        emulator.start({ waitAfterDownloading: false });
+        })
+      })
+
+
+    window.addEventListener('emulatorStarted', function (e) {
+      document.getElementById("tvScreen").remove()
+      document.getElementById("dropImage").remove()
+    }, false);
+  </script>
+</body>
+
+<%= javascript_include_tag "cable/subscriptions/host" %>

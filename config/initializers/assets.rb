@@ -11,4 +11,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(
     cable/subscriptions/host.js
     cable/subscriptions/client.js
+    snes_js/*
   )
