@@ -56,9 +56,9 @@
 <body>
   <h1 id="link"><a target="blank">websn.es/7f55a</a></h1>
   <canvas id="canvas"></canvas>
-  <img id="emptyTV" src="../../assets/images/empty_tv.png">
-  <img id="tvScreen" src="../../assets/images/tv_screen.png">
-  <img id="dropImage" src="../../assets/images/drop.svg">
+  <img id="emptyTV" src="/images/empty_tv.png">
+  <img id="tvScreen" src="/images/tv_screen.png">
+  <img id="dropImage" src="/images/drop.svg">
   <div id="tvScreenOverlay"></div>
 
   <%= javascript_include_tag "snes/es6-promise" %>
@@ -84,12 +84,12 @@
 
       dropzone.on("dragenter", function(file) {
         tvScreen.classList.add("dropping")
-        dropImage.setAttribute("src", "../../assets/images/drop_ready.svg")
+        dropImage.setAttribute("src", "/images/drop_ready.svg")
       })
 
       dropzone.on("dragleave", function(file) {
         tvScreen.classList.remove("dropping")
-        dropImage.setAttribute("src", "../../assets/images/drop.svg")
+        dropImage.setAttribute("src", "/images/drop.svg")
       })
 
       dropzone.on("addedfile", function(file) {
