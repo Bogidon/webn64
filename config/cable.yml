@@ -1,6 +1,6 @@
 production:
   adapter: redis
-  url: redis://koi.redistogo.com:11436
+  url: <%=ENV['REDISTOGO_URL']%>
   channel_prefix: appname_production
 
 local: &local
